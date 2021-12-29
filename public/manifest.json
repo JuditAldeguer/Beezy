@@ -1,0 +1,15 @@
+{
+  "short_name": "Marvel's WIKI",
+  "name": "Marvel's WIKI",
+  "icons": [
+    {
+      "src": "logoSm.webp",
+      "sizes": "42x42",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
