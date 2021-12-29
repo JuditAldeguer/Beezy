@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 //Services
 import ls from "../services/local-storage";
+import { data } from "../types/Data";
 //Styles
 import '../styles/App.scss';
 //Components
 import Header from "./Header";
-import { data } from "../types/Data";
+import Main from "./Main";
+import Footer from "./Footer";
 
 interface IState {
   data: data[];
@@ -21,10 +23,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main className="container">
-        <h2 className="title">Characters list : </h2>
-      </main>
-      
+      <Main/>
+     <Footer/>
     </div>
   );
 }

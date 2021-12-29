@@ -2,6 +2,8 @@
 @import "../core/mixins.scss";
 
 .header {
+  position: fixed;
+  width: 100%;
     .navbar-expand-lg  .navbar-collapse{
         justify-content: flex-end;
     }
