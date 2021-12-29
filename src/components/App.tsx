@@ -21,6 +21,10 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <main className="container">
+        <h2 className="title">Characters list : </h2>
+      </main>
+      
     </div>
   );
 }
