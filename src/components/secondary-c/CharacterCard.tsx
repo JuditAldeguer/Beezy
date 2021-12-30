@@ -1,7 +1,8 @@
+import { NavLink } from "react-router-dom";
 //Styles
 import "../../styles/components/characterCards.scss";
 //component
-import { NavLink } from "react-router-dom";
+
 
 const CharacterCard = (props: any) => {
   return (

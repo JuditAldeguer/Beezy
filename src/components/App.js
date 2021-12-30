@@ -11,16 +11,16 @@ import Main from "./Main";
 import Footer from "./Footer";
 import Loading from "./secondary-c/Loading";
 
-interface IState {
-  data: data[];
-}
+// interface IState {
+//   data: data[];
+// }
 
 function App() {
   //useState
   const [listCharacters, setListCharacters] = useState([]);
   const [filteredListCharacters, setFilteredListCharacters] = useState(listCharacters);
   const [searchWord, setSearchWord] = useState('');
-  const [orderBy, setOrderBy] = useState("title");
+  const [orderBy, setOrderBy] = useState("name");
   const [isLoading, setIsLoading] = useState(false);
   const [numberOfPages, setNumberOfPages] = useState('');
   let pageNumCont;
@@ -33,7 +33,7 @@ function App() {
      setListCharacters(response.results);
      setIsLoading(false);
      setSearchWord(" ");
-     setOrderBy("title");
+     setOrderBy("name");
      setNumberOfPages(response.info.pages);
    });
  }, [pageNum]);
@@ -46,7 +46,7 @@ function App() {
     <div className="App">
       <Header />
       <Loading loading={isLoading} />
-      <Main />
+      <Main  data={filteredListCharacters} searchWord={searchWord} />
       <Footer />
     </div>
   );

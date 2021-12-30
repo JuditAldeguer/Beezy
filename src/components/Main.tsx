@@ -4,7 +4,7 @@ import "../styles/layout/main.scss";
 import Filters from "./secondary-c/Filters";
 import List from "./secondary-c/List";
 
-function Main() {
+function Main(props:any) {
   //useState
 
   // useEffect
@@ -14,7 +14,7 @@ function Main() {
   return (
     <main className="container">
       <Filters />
-      <List />
+      <List data={props.data} searchWord={props.searchWord} />
     </main>
   );
 }
