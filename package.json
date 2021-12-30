@@ -1,5 +1,5 @@
 {
-  "name": "marvel-wiki",
+  "name": "breaking-bad-wiki",
   "homepage": "./",
   "version": "0.1.0",
   "private": true,
@@ -52,6 +52,7 @@
   "devDependencies": {
     "@testing-library/dom": "^8.11.1",
     "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2"
+    "@testing-library/react": "^12.1.2",
+    "@types/uuid": "^8.3.3"
   }
 }

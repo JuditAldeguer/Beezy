@@ -10,7 +10,7 @@ function Header() {
     <header className="header">
       <Navbar variant="dark" bg="dark" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/">Marvel's Wiki</Navbar.Brand>
+          <Navbar.Brand href="/">Breaking Bad's Wiki</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-dark" />
           <Navbar.Collapse id="navbar-dark">
             <Nav>

@@ -55,7 +55,7 @@ function App() {
 
   // handles
 
-  
+
   return (
     <div className="App">
       <Header />
@@ -63,9 +63,8 @@ function App() {
       <Main data={listCharacters} searchWord={searchWord} />
       <Footer />
       {/* <Routes>
-            <Route path="/" exact />
-            <Route element={NotFoundPage} />
-          </Route> 
+        <Route path="/" exact element={(Header, Loading, Main, Footer)} />
+        <Route element={NotFoundPage} />
       </Routes> */}
     </div>
   );

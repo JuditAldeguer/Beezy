@@ -5,12 +5,12 @@ import Filters from "./secondary-c/Filters";
 import List from "./secondary-c/List";
 
 interface IProps {
-  data: [];
-  searchWord: String;
+    data: [];
+    searchWord: String;
 }
 
 const Main: React.FC<IProps> = ({ data, searchWord }) => {
-   return (
+  return (
     <main className="container">
       <Filters searchWord={searchWord} />
       <List data={data} />

@@ -7,7 +7,6 @@ function List(props: any) {
   //render
   const renderList = (): JSX.Element[] => {
     return props.data.map((character: any) => {
-      console.log(character.char_id);      
       return (
         <li key={character.char_id}>
           <CharacterCard
