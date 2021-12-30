@@ -1,11 +1,8 @@
-const callToApi = (searchWord: String, orderBy: String) => {
-  console.log(searchWord);
-  const word = searchWord.replaceAll(" ", "+");  
-  console.log(word);
+const callToApi = (searchWord: String, pageNum: String) => {
+  const word = searchWord.replaceAll(" ", "+");
   const url = `https://breakingbadapi.com/api/characters${
     word === "" ? "?limit=10" : `?name=${word}&limit=10`
-  }`;
-  console.log(url);
+  }&offset=${pageNum}`;
   return fetch(url)
     .then((response) => response.json())
     .then((response) => {
@@ -14,11 +11,10 @@ const callToApi = (searchWord: String, orderBy: String) => {
 };
 
 const callToApi2 = () => {
-  debugger;
   return fetch("https://breakingbadapi.com/api/characters")
     .then((response) => response.json())
     .then((response) => {
-      return response;
+      return response.length;
     });
 };
 

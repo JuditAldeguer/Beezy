@@ -5,13 +5,14 @@ import CharacterCard from "./CharacterCard";
 
 function List(props: any) {
   //render
-  const renderList = () => {
+  const renderList = (): JSX.Element[] => {
     return props.data.map((character: any) => {
+      console.log(character.char_id);      
       return (
-        <li key={character.id} className="z_index">
+        <li key={character.char_id}>
           <CharacterCard
             character={character}
-            characterId={props.characterId}
+            // characterId={props.characterId}
           />
         </li>
       );

@@ -26,38 +26,41 @@ function App() {
   const [orderBy, setOrderBy] = useState("name");
   const [isLoading, setIsLoading] = useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
+  const [numberOfPagesWord, setNumberOfPagesWord] = useState(1);
   let pageNumCont;
-  const [pageNum, setPageNum] = useState(1);
+  const [pageNum, setPageNum] = useState(0);
 
   // useEffect
   useEffect(() => {
     setIsLoading(true);
     if (searchWord === "") {
       api.callToApi2().then((response) => {
-        updateStates(response);
+        setNumberOfPages(response / 10);
       });
     }
-    api.callToApi(searchWord, orderBy).then((response) => {
-      updateStates(response);
-    });
+    updateStates();
   }, [searchWord]);
 
-  const updateStates = (response) => {
-    setListCharacters(response);
-    setIsLoading(false);
-    setNumberOfPages(response.length / 10);
+  const updateStates = () => {
+    api.callToApi(searchWord, pageNum).then((response) => {
+      setListCharacters(response);
+      setIsLoading(false);
+      const num = response.length / 10 <= 1 ? 1 : response.length / 10;
+      console.log(num);
+      setNumberOfPagesWord(
+        response.length / 10 <= 1 ? 1 : response.length / 10
+      );
+    });
   };
-
-
-
 
   // handles
 
+  
   return (
     <div className="App">
       <Header />
       <Loading loading={isLoading} />
-      <Main data={filteredListCharacters} searchWord={searchWord} />
+      <Main data={listCharacters} searchWord={searchWord} />
       <Footer />
       {/* <Routes>
             <Route path="/" exact />

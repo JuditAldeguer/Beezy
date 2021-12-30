@@ -4,19 +4,18 @@ import "../styles/layout/main.scss";
 import Filters from "./secondary-c/Filters";
 import List from "./secondary-c/List";
 
-function Main(props:any) {
-  //useState
+interface IProps {
+  data: [];
+  searchWord: String;
+}
 
-  // useEffect
-
-  // handles
-
-  return (
+const Main: React.FC<IProps> = ({ data, searchWord }) => {
+   return (
     <main className="container">
-      <Filters />
-      <List data={props.data} searchWord={props.searchWord} />
+      <Filters searchWord={searchWord} />
+      <List data={data} />
     </main>
   );
-}
+};
 
 export default Main;
