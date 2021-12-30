@@ -1,5 +1,5 @@
 // Función que obtiene una propiedad del local storage
-const get = (key, defaultValue) => {
+const get = (key:any, defaultValue: any) => {
   const localStorageData = localStorage.getItem(key);
   if (localStorageData === null) {
     return defaultValue; // Si es la primera vez que la usuaria entra en la web, devuelve el valor de defaultValue
@@ -9,13 +9,13 @@ const get = (key, defaultValue) => {
 };
 
 // Función que guarda una propiedad y su valor en el local storage
-const set = (key, value) => {
+const set = (key: any, value: any) => {
   const localStorageData = JSON.stringify(value);
   localStorage.setItem(key, localStorageData);
 };
 
 // Función que borra una propiedad del local storage
-const remove = (key) => {
+const remove = (key: any) => {
   localStorage.removeItem(key);
 };
 
