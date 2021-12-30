@@ -5,7 +5,7 @@ import ls from "../services/local-storage";
 import api from "../services/api";
 import { data } from "../types/Data";
 //Styles
-import '../styles/App.scss';
+import "../styles/App.scss";
 //Components
 import Header from "./Header";
 import Main from "./Main";
@@ -20,28 +20,37 @@ import NotFoundPage from "./secondary-c/NotFoundPage";
 function App() {
   //useState
   const [listCharacters, setListCharacters] = useState([]);
-  const [filteredListCharacters, setFilteredListCharacters] = useState(listCharacters);
-  const [searchWord, setSearchWord] = useState('');
+  const [filteredListCharacters, setFilteredListCharacters] =
+    useState(listCharacters);
+  const [searchWord, setSearchWord] = useState("");
   const [orderBy, setOrderBy] = useState("name");
   const [isLoading, setIsLoading] = useState(false);
-  const [numberOfPages, setNumberOfPages] = useState('');
+  const [numberOfPages, setNumberOfPages] = useState(1);
   let pageNumCont;
   const [pageNum, setPageNum] = useState(1);
-  
+
   // useEffect
- useEffect(() => {
-   setIsLoading(true);
-   api.callToApi(searchWord, orderBy).then((response) => {
-     setListCharacters(response.results);
-     setIsLoading(false);
-     setSearchWord(" ");
-     setOrderBy("name");
-     setNumberOfPages(response.info.pages);
-   });
- }, [searchWord]);
-  
-  
-  
+  useEffect(() => {
+    setIsLoading(true);
+    if (searchWord === "") {
+      api.callToApi2().then((response) => {
+        updateStates(response);
+      });
+    }
+    api.callToApi(searchWord, orderBy).then((response) => {
+      updateStates(response);
+    });
+  }, [searchWord]);
+
+  const updateStates = (response) => {
+    setListCharacters(response);
+    setIsLoading(false);
+    setNumberOfPages(response.length / 10);
+  };
+
+
+
+
   // handles
 
   return (

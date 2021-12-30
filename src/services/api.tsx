@@ -6,9 +6,16 @@ const callToApi = (searchWord: String, orderBy: String) => {
     word === "" ? "?limit=10" : `?name=${word}&limit=10`
   }`;
   console.log(url);
-  
-  debugger;
   return fetch(url)
+    .then((response) => response.json())
+    .then((response) => {
+      return response;
+    });
+};
+
+const callToApi2 = () => {
+  debugger;
+  return fetch("https://breakingbadapi.com/api/characters")
     .then((response) => response.json())
     .then((response) => {
       return response;
@@ -17,6 +24,7 @@ const callToApi = (searchWord: String, orderBy: String) => {
 
 
 const objectToExport = {
-  callToApi: callToApi
+  callToApi: callToApi,
+  callToApi2: callToApi2,
 };
 export default objectToExport;
