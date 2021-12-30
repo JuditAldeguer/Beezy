@@ -1,21 +1,19 @@
 const callToApi = (searchWord: String, orderBy: String) => {
-  debugger;
   console.log(searchWord);
-  const word = searchWord.replaceAll(" ", "");  
+  const word = searchWord.replaceAll(" ", "+");  
   console.log(word);
-  return fetch(
-    `//www.swapi.tech/api/people/${
-      word === ""  ? "" : `?name=${searchWord}`
-    }`
-  )
+  const url = `https://breakingbadapi.com/api/characters${
+    word === "" ? "?limit=10" : `?name=${word}&limit=10`
+  }`;
+  console.log(url);
+  
+  debugger;
+  return fetch(url)
     .then((response) => response.json())
     .then((response) => {
-      debugger;
-      console.log(word === "" ? response.results : response.result);
-      return word === "" ? response.results : response.result;
+      return response;
     });
 };
-
 
 
 const objectToExport = {
