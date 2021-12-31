@@ -1,0 +1,14 @@
+@import "../core/mixins.scss";
+
+
+.list-group-item {
+    margin: 0.1rem;
+    width: fit-content;
+}
+
+.list-group {
+    margin-bottom: 4rem;
+    @include tablet {
+    margin-bottom: 5rem;
+    }
+}

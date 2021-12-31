@@ -1,4 +1,5 @@
 //Styles
+import { ListGroup } from "react-bootstrap";
 import "../../styles/components/list.scss";
 //component
 import CharacterCard from "./CharacterCard";
@@ -8,12 +9,16 @@ function List(props: any) {
   const renderList = (): JSX.Element[] => {
     return props.data.map((character: any) => {
       return (
-        <li key={character.char_id}>
+        <ListGroup.Item
+          variant="dark"
+          horizontal="md"
+          key={character.char_id}
+        >
           <CharacterCard
             character={character}
-            // characterId={props.characterId}
+            characterId={character.char_id}
           />
-        </li>
+        </ListGroup.Item>
       );
     });
   };
@@ -21,7 +26,7 @@ function List(props: any) {
   return (
     <section className="container">
       <h2 className="title">Characters list : </h2>
-      <ul className="list">{renderList()}</ul>;
+      <ListGroup>{renderList()}</ListGroup>
     </section>
   );
 }

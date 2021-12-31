@@ -53,8 +53,15 @@ function App() {
     });
   };
 
-  // handles
+  //useRef
+  // const routeData = useRouteMatch("/character/:characterId");
+  // const characterId =
+  //   routeData !== null ? parseInt(routeData.params.characterId) : "";
+  // const selectedCharacter = listCharacters.find((character) => {
+  //   return character.id === characterId;
+  // });
 
+  // handles
 
   return (
     <div className="App">
@@ -64,6 +71,11 @@ function App() {
       <Footer />
       {/* <Routes>
         <Route path="/" exact element={(Header, Loading, Main, Footer)} />
+         <Route path="/character/:characterId">
+              <CharacterDetail
+                character={selectedCharacter}
+                characterId={characterId}/>
+         <Route />
         <Route element={NotFoundPage} />
       </Routes> */}
     </div>

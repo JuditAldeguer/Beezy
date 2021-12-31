@@ -12,7 +12,7 @@ interface IProps {
 const Main: React.FC<IProps> = ({ data, searchWord }) => {
   return (
     <main className="container">
-      <Filters searchWord={searchWord} />
+      <Filters searchWord={searchWord}  />
       <List data={data} />
     </main>
   );

@@ -7,25 +7,18 @@ import "../../styles/components/characterCards.scss";
 
 const CharacterCard = (props: any) => {
 
-  const renderOcupation = () => {
-    debugger;
-    return props.character.occupation.map((o:any) => {
-      return <li key={uuid()}>{o}</li>;
-    });
-  }
+  
   return (
     <>
-      <NavLink
-        to="/"
-        // to={`./character/${props.character.id}`}
-        title="Detail"
-      >
-        <article className="card">
-          <img src={props.character.img} alt="character" />
-          <h2><strong>{props.character.name}</strong></h2>
-          <ul>{renderOcupation()}</ul>
-          <p>{props.character.status}</p>
-        </article>
+      <NavLink to={`./character/${props.character.id}`} title="Detail">
+        <img className="card--img" src={props.character.img} alt="character" />
+        <h3>
+          <strong>{props.character.name}</strong>
+        </h3>
+          <p>
+            <strong>Nickname: </strong>
+            {props.character.nickname}
+          </p>
       </NavLink>
     </>
   );
