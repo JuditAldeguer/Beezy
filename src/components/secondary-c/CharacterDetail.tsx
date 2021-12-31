@@ -1,7 +1,8 @@
 //React
 import { useState } from "react";
-import { Card, Modal } from "react-bootstrap";
+import { v4 as uuid } from "uuid";
 //styles
+import { Card, Modal } from "react-bootstrap";
 import "../styles/components/characterDetail.scss";
 
 const CharacterDetail = (props: any) => {

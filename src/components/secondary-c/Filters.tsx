@@ -2,13 +2,12 @@ import { useState } from "react";
 //styles
 import "../../styles/components/filters.scss";
 import { Form, Row, Col } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 function Filters(props: any) {
   //useState
   
   // handles
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     const v = e.target.value;
     const i = e.target.id;
     props.handleChange(v, i);

@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { v4 as uuid } from "uuid";
 //Styles
 import "../../styles/components/characterCards.scss";
 //component
