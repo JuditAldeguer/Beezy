@@ -11,7 +11,6 @@ function List(props: any) {
       return (
         <ListGroup.Item
           variant="dark"
-          horizontal="md"
           key={character.char_id}
         >
           <CharacterCard
