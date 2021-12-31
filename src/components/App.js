@@ -62,12 +62,18 @@ function App() {
   // });
 
   // handles
-
+  const handleChange = (value, name) => {
+  console.log(value, name);
+};
   return (
     <div className="App">
       <Header />
       <Loading loading={isLoading} />
-      <Main data={listCharacters} searchWord={searchWord} />
+      <Main
+        data={listCharacters}
+        searchWord={searchWord}
+        handleChange={handleChange}
+      />
       <Footer />
       {/* <Routes>
         <Route path="/" exact element={(Header, Loading, Main, Footer)} />
