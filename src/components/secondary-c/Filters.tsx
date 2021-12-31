@@ -24,7 +24,7 @@ function Filters(props: any) {
               required
               size="sm"
               type="text"
-              placeholder="Walter White"
+              placeholder="Example: Walter White"
               // value={data.name}
               onChange={handleChange}
             />
