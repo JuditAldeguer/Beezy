@@ -10,6 +10,8 @@
 
 .list-group {
     margin-bottom: 4rem;
+    justify-content: center;
+    align-items: center;
     @include tablet {
     margin-bottom: 5rem;
     flex-direction: row;
