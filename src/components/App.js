@@ -47,8 +47,6 @@ function App() {
     api.callToApi(searchWord, pageNum).then((response) => {
       setListCharacters(response);
       setIsLoading(false);
-      const num = response.length / 10 <= 1 ? 1 : response.length / 10;
-      console.log(num);
       setNumberOfPagesWord(
         response.length / 10 <= 1 ? 1 : response.length / 10
       );
@@ -78,20 +76,17 @@ function App() {
      }if (name === "appearance") {
        setSearchAppearance(value);
      }
-    console.log(value, name);
   };
 
    const getFilteredData = () => {
      const newData = listCharacters
        .filter((character) => {
-         debugger;
          if (searchStatus !== "all") {
            return character.status.includes(searchStatus);
          } else return character;
         }      
        )
        .filter((character) => {
-         debugger;
          if (searchAappearance === "yes") {
            return character.better_call_saul_appearance.length > 0;
          } if (searchAappearance === "no") {
@@ -114,15 +109,27 @@ function App() {
    };
 
   const setByOrder = (newData) => {
-    newData.sort(function (a, b) {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    });
+    if (orderBy === "nickname") {
+      newData.sort(function (a, b) {
+        if (a.nickname > b.nickname) {
+          return 1;
+        }
+        if (a.nickname < b.nickname) {
+          return -1;
+        }
+        return 0;
+      });
+    } else {
+      newData.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0;
+      });
+    }
   };
 
 
