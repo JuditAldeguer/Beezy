@@ -49,7 +49,6 @@ const CharacterDetail = (props: any) => {
   };
 
   const renderCharaterDetail = () => { 
-    debugger;
      if (props.character === undefined) {
        return (
          <Modal
@@ -73,54 +72,58 @@ const CharacterDetail = (props: any) => {
        );
      } 
        return (
-         <Modal show={show} fullscreen onHide={() => { setShow(false); window.history.back(); }}>
+         <Modal
+           show={show}
+           fullscreen
+           onHide={() => {
+             setShow(false);
+             window.history.back();
+           }}
+         >
            <Modal.Header closeButton>
              <Modal.Title>{props.character.name}</Modal.Title>
            </Modal.Header>
            <Modal.Body>
-             <Card
-               bg="Secondary"
-               text="white"
-               style={{ width: "18rem" }}
-               className="mb-2"
-             >
+             <Card bg="Secondary" className="mb-2">
                <Card.Img variant="top" src={props.character.img} />
                <Card.Body>
                  <Card.Title>{props.character.name} </Card.Title>
                  <Card.Text>
-                   <li>
-                     <p>
-                       <strong>Status: </strong>
-                       {iconStatus()}
-                     </p>
-                   </li>
-                   <li>
-                     <p>
-                       <strong>Nickname: </strong>
-                       {props.character.nickname}
-                     </p>
-                   </li>
-                   <li>
-                     <ul>Ocupation: {renderOcupation()}</ul>
-                   </li>
-                   <li>
-                     <p>
-                       <strong>Birthday: </strong>
-                       {props.character.birthday}
-                     </p>
-                   </li>
-                   <li>
-                     <p>
-                       <strong>Appears in seasons: </strong>
-                       {props.character.appearance}
-                     </p>
-                   </li>
-                   <li>
-                     <p>
-                       <strong>Portrayed by: </strong>
-                       {props.character.portrayed}
-                     </p>
-                   </li>
+                   <ul>
+                     <li key="status">
+                       <p>
+                         {iconStatus()}
+                       </p>
+                     </li>
+                     <li key="nickname">
+                       <p>
+                         <strong>Nickname: </strong>
+                         {props.character.nickname}
+                       </p>
+                     </li>
+                     <li key="ocupation">
+                        <p>
+                       <ul><strong>Ocupation: </strong>{renderOcupation()}</ul></p>
+                     </li>
+                     <li key="birthday">
+                       <p>
+                         <strong>Birthday: </strong>
+                         {props.character.birthday}
+                       </p>
+                     </li>
+                     <li key="appearance">
+                       <p>
+                         <strong>Appears in seasons: </strong>
+                         {props.character.appearance}
+                       </p>
+                     </li>
+                     <li key="portrayed">
+                       <p>
+                         <strong>Portrayed by: </strong>
+                         {props.character.portrayed}
+                       </p>
+                     </li>
+                   </ul>
                  </Card.Text>
                </Card.Body>
              </Card>
