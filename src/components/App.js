@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useRouteMatch } from "react-router-dom";
+import {Route, Switch, useRouteMatch } from "react-router-dom";
 //Services
 import ls from "../services/local-storage";
-import api from "../services/api";
 import { data } from "../types/Data";
+import api from "../services/api";
 //Styles
 import "../styles/App.scss";
 //Components
@@ -12,6 +12,7 @@ import Main from "./Main";
 import Footer from "./Footer";
 import Loading from "./secondary-c/Loading";
 import NotFoundPage from "./secondary-c/NotFoundPage";
+import CharacterDetail from "./secondary-c/CharacterDetail";
 
 // interface IState {
 //   data: data[];
@@ -58,12 +59,13 @@ function App() {
    }, [listCharacters, searchWord, searchStatus, searchAappearance, orderBy]);
 
   //useRef
-  // const routeData = useRouteMatch("/character/:characterId");
-  // const characterId =
-  //   routeData !== null ? parseInt(routeData.params.characterId) : "";
-  // const selectedCharacter = listCharacters.find((character) => {
-  //   return character.id === characterId;
-  // });
+  const routeData = useRouteMatch("/character/:characterId");
+  const characterId =
+    routeData !== null ? parseInt(routeData.params.characterId) : "";
+  const selectedCharacter = listCharacters.find((character) => {
+    return character.char_id === characterId;
+  });
+  console.log(routeData, selectedCharacter);
 
   // handles
   const handleChange = (value, name) => {
@@ -143,16 +145,21 @@ function App() {
         handleChange={handleChange}
       />
       <Footer />
-      {/* <Routes>
-        <Route path="/" exact element={(Header, Loading, Main, Footer)} />
-         <Route path="/character/:characterId">
-              <CharacterDetail
-                character={selectedCharacter}
-                characterId={characterId}/>
-         <Route />
-        <Route element={NotFoundPage} />
-      </Routes> */}
+      <Switch>
+        <Route path="/" exact></Route>
+        <Route path="/character/:characterId">
+          <CharacterDetail
+            character={selectedCharacter}
+            characterId={characterId}
+          />
+        </Route>
+        <Route element={<NotFoundPage />} />
+      </Switch>
     </div>
+    // <Routes>
+    //   <Route path="/" element={<div>Hola</div>} />
+    //   <Route path="/me" element={<div>Judit</div>} />
+    // </Routes>
   );
 }
 
