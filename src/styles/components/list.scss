@@ -3,8 +3,8 @@
 
 .list-group-item {
     margin: 0.1rem;
-    width: fit-content;
-
+    width: min-content;
+    height: 450px;
 }
 
 .list-group {

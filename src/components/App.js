@@ -63,6 +63,10 @@ function App() {
 
   // handles
   const handleChange = (value, name) => {
+    debugger;
+    if (name === "searchName") {
+      setSearchWord(value);
+    }
   console.log(value, name);
 };
   return (
