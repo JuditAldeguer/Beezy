@@ -24,6 +24,8 @@ function App() {
     useState(listCharacters);
   const [searchWord, setSearchWord] = useState("");
   const [orderBy, setOrderBy] = useState("name");
+  const [status, setStatus] = useState("name");
+  const [appearance, setAppearance] = useState("name");
   const [isLoading, setIsLoading] = useState(false);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesWord, setNumberOfPagesWord] = useState(1);
@@ -63,11 +65,16 @@ function App() {
 
   // handles
   const handleChange = (value, name) => {
-    debugger;
     if (name === "searchName") {
       setSearchWord(value);
-    }
-  console.log(value, name);
+    } if (name === "orderBy") {
+      setOrderBy(value);
+     }if (name === "status") {
+       setStatus(value);
+     }if (name === "appearance") {
+       setAppearance(value);
+     }
+    console.log(value, name);
 };
   return (
     <div className="App">
