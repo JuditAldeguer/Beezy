@@ -4,7 +4,8 @@
 .list-group-item {
     margin: 0.1rem;
     width: min-content;
-    height: 450px;
+    min-width: 300px;
+    min-height: 500px;
 }
 
 .list-group {

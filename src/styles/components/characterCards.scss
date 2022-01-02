@@ -10,6 +10,12 @@ ul {
 .container {
   .list-group-item-dark {
       a{
+            width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     color: #212529 !important;
     text-decoration: none;
     text-align: center;
