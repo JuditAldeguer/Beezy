@@ -7,20 +7,22 @@ import Loading from "./Loading";
 
 function List(props: any) {
   //render
-  const renderList = (): JSX.Element[] => {
-    return props.data.map((character: any) => {
-      return (
-        <ListGroup.Item
-          variant="dark"
-          key={character.char_id}
-        >
-          <CharacterCard
-            character={character}
-            characterId={character.char_id}
-          />
-        </ListGroup.Item>
-      );
-    });
+  const renderList = () => {
+    if (props.data !== undefined) {
+      return props.data.map((character: any) => {
+        return (
+          <ListGroup.Item
+            variant="dark"
+            key={character.char_id}
+          >
+            <CharacterCard
+              character={character}
+              characterId={character.char_id}
+            />
+          </ListGroup.Item>
+        );
+      });
+    }
   };
 
   return (
