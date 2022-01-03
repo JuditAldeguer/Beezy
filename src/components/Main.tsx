@@ -1,5 +1,4 @@
 //Styles
-import { propTypes } from "react-bootstrap/esm/Image";
 import "../styles/layout/main.scss";
 //Components
 import Filters from "./secondary-c/Filters";
@@ -19,7 +18,7 @@ const Main: React.FC<IProps> = ({
   isLoading
 }) => {
   return (
-    <main className="container">
+    <main className="container" id="filters">
       <Filters searchWord={searchWord} handleChange={handleChange} />
       <List data={data} isLoading={isLoading} />
     </main>

@@ -1,4 +1,6 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+//HashLink
+import { HashLink } from  'react-router-hash-link'; 
 //Styles
 import '../styles/layout/header.scss';
 
@@ -14,10 +16,26 @@ function Header() {
           <Navbar.Toggle aria-controls="navbar-dark" />
           <Navbar.Collapse id="navbar-dark">
             <Nav>
-              <NavDropdown.Item href="#action/3.1">Filters</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Character list
-              </NavDropdown.Item>
+              <Nav.Item>
+                <HashLink
+                  className="nav_link dropdown-item"
+                  smooth
+                  to={`#filters`}
+                  title="filters"
+                >
+                  Filters
+                </HashLink>
+              </Nav.Item>
+              <Nav.Item>
+                <HashLink
+                  className="nav_link dropdown-item"
+                  smooth
+                  to={`#list`}
+                  title="list"
+                >
+                  Character list
+                </HashLink>
+              </Nav.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
                 href="https://juditaldeguer.github.io/portfolio/"

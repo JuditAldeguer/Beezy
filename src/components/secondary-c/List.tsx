@@ -24,7 +24,7 @@ function List(props: any) {
   };
 
   return (
-    <section className="container">
+    <section className="container" >
       <h2 className="title">Characters list : </h2>
       <Loading isLoading={props.isLoading} />
       <ListGroup>{renderList()}</ListGroup>
