@@ -5,10 +5,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { prettyDOM } from "@testing-library/dom";
 
-describe("Testing component Header", () => {
+describe("Testing component Header", () => {  
+  beforeEach(() => render(<Router><Header /></Router>));
   test("renders Header link", () => {
-    render(<Router><Header /></Router>);
     const linkElement = screen.getByText(/Breaking/i);
+    console.log(prettyDOM(linkElement));
+    expect(linkElement).toBeInTheDocument();
+  });
+  test("renders Header link-scroll", () => {
+    const linkElement = screen.getByText(/Filters/i);
     console.log(prettyDOM(linkElement));
     expect(linkElement).toBeInTheDocument();
   });
