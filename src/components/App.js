@@ -153,7 +153,9 @@ function App() {
             characterId={characterId}
           />
         </Route>
-        <Route element={<NotFoundPage />} />
+        <Route>
+          <NotFoundPage />
+        </Route>
       </Switch>
     </div>
     // <Routes>

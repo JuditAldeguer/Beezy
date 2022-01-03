@@ -13,7 +13,10 @@ const NotFoundPage = () => {
       centered
       className="not_found_page"
       show={show}
-      onHide={() => setShow(false)}
+      onHide={() => {
+        setShow(false);
+        window.history.back();
+      }}
     >
       <Modal.Header closeButton>
         <Modal.Title>
