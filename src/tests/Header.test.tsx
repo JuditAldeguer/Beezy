@@ -15,6 +15,7 @@ describe("Testing component Header", () => {
   test("renders Header link-scroll", () => {
     const linkElement = screen.getByText(/Filters/i);
     console.log(prettyDOM(linkElement));
-    expect(linkElement).toBeInTheDocument();
+    const hrefAtribute = linkElement.getAttribute("href");
+    expect(hrefAtribute).toContain("#");
   });
 });
