@@ -81,7 +81,7 @@ const CharacterDetail = (props: any) => {
            }}
          >
            <Modal.Header closeButton>
-             <Modal.Title>{props.character.name}</Modal.Title>
+             <Modal.Title>Character Details:</Modal.Title>
            </Modal.Header>
            <Modal.Body>
              <Card bg="Secondary" className="mb-2">

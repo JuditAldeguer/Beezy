@@ -1,6 +1,13 @@
 @import "../core/mixins.scss";
 
 .modal-fullscreen .modal-content {
+  .modal-title {
+    width: 100%;
+    text-align: center;
+    @include tablet {
+      font-size: 2rem;
+    }
+  }
   .modal-body {
     justify-content: center;
     align-items: center;
@@ -16,7 +23,11 @@
       @include tablet {
         top: 3%;
         flex-direction: row;
-        min-width: max-content;
+        min-width: max-content;        
+        transform: scale(1.2);
+      }
+      @include desktop {
+        transform: scale(1.5);
       }
       .card-img-top {
         @include tablet {
