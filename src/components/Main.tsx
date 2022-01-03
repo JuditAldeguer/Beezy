@@ -1,5 +1,4 @@
 //Styles
-import { propTypes } from "react-bootstrap/esm/Image";
 import "../styles/layout/main.scss";
 //Components
 import Filters from "./secondary-c/Filters";

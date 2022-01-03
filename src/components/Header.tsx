@@ -16,16 +16,26 @@ function Header() {
           <Navbar.Toggle aria-controls="navbar-dark" />
           <Navbar.Collapse id="navbar-dark">
             <Nav>
-              <NavDropdown.Item>
-                <HashLink className="nav_link" to={`#filters`} title="filters">
+              <Nav.Item>
+                <HashLink
+                  className="nav_link dropdown-item"
+                  smooth
+                  to={`#filters`}
+                  title="filters"
+                >
                   Filters
                 </HashLink>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <HashLink className="nav_link" to={`#list`} title="list">
+              </Nav.Item>
+              <Nav.Item>
+                <HashLink
+                  className="nav_link dropdown-item"
+                  smooth
+                  to={`#list`}
+                  title="list"
+                >
                   Character list
                 </HashLink>
-              </NavDropdown.Item>
+              </Nav.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item
                 href="https://juditaldeguer.github.io/portfolio/"
