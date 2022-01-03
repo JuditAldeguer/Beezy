@@ -9,13 +9,19 @@ interface IProps {
   data: [];
   searchWord: String;
   handleChange: Function;
+  isLoading: Boolean;
 }
 
-const Main: React.FC<IProps> = ({ data, searchWord, handleChange }) => {
+const Main: React.FC<IProps> = ({
+  data,
+  searchWord,
+  handleChange,
+  isLoading
+}) => {
   return (
     <main className="container">
       <Filters searchWord={searchWord} handleChange={handleChange} />
-      <List data={data} />
+      <List data={data} isLoading={isLoading} />
     </main>
   );
 };

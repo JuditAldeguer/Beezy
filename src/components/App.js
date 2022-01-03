@@ -10,7 +10,6 @@ import "../styles/App.scss";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import Loading from "./secondary-c/Loading";
 import NotFoundPage from "./secondary-c/NotFoundPage";
 import CharacterDetail from "./secondary-c/CharacterDetail";
 
@@ -27,7 +26,7 @@ function App() {
   const [searchStatus, setSearchStatus] = useState("");
   const [searchAappearance, setSearchAppearance] = useState("");
   const [orderBy, setOrderBy] = useState("name");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesWord, setNumberOfPagesWord] = useState(1);
   let pageNumCont;
@@ -65,7 +64,6 @@ function App() {
   const selectedCharacter = listCharacters.find((character) => {
     return character.char_id === characterId;
   });
-  console.log(routeData, selectedCharacter);
 
   // handles
   const handleChange = (value, name) => {
@@ -134,12 +132,11 @@ function App() {
     }
   };
 
-
   return (
     <div className="App">
       <Header />
-      <Loading loading={isLoading} />
       <Main
+        isLoading={isLoading}
         data={filteredListCharacters}
         searchWord={searchWord}
         handleChange={handleChange}
@@ -158,10 +155,6 @@ function App() {
         </Route>
       </Switch>
     </div>
-    // <Routes>
-    //   <Route path="/" element={<div>Hola</div>} />
-    //   <Route path="/me" element={<div>Judit</div>} />
-    // </Routes>
   );
 }
 

@@ -3,6 +3,7 @@ import { ListGroup } from "react-bootstrap";
 import "../../styles/components/list.scss";
 //component
 import CharacterCard from "./CharacterCard";
+import Loading from "./Loading";
 
 function List(props: any) {
   //render
@@ -25,6 +26,7 @@ function List(props: any) {
   return (
     <section className="container">
       <h2 className="title">Characters list : </h2>
+      <Loading isLoading={props.isLoading} />
       <ListGroup>{renderList()}</ListGroup>
     </section>
   );
