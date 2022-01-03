@@ -14,11 +14,13 @@ button {
   display: none;
 }
 
-// .selected{
-//   background-color: $primary;
-// }
+.nav_link{
+  color: white;
+  text-decoration: none;
+}
 
 .disabled{
   opacity: 0.9;
   color: rgb(189, 187, 187);
 }
+

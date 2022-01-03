@@ -19,7 +19,7 @@ const Main: React.FC<IProps> = ({
   isLoading
 }) => {
   return (
-    <main className="container">
+    <main className="container" id="filters">
       <Filters searchWord={searchWord} handleChange={handleChange} />
       <List data={data} isLoading={isLoading} />
     </main>
