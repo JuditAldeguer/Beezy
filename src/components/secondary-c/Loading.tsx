@@ -1,7 +1,12 @@
 import '../../styles/components/loading.scss';
 
-const Loading = (props: any) => {
-  return props.isLoading ? (
+
+type LoadingProps = {
+  isLoading: boolean;
+};
+
+const Loading = ({ isLoading }: LoadingProps) => {
+  return isLoading ? (
     <div className="lds-spinner">
       <div></div>
       <div></div>
