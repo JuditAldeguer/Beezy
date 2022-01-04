@@ -76,6 +76,7 @@ function App() {
      }if (name === "appearance") {
        setSearchAppearance(value);
      }
+    console.log(searchWord, searchStatus, searchAappearance, orderBy);
   };
 
    const getFilteredData = () => {
@@ -139,6 +140,9 @@ function App() {
         isLoading={isLoading}
         data={filteredListCharacters}
         searchWord={searchWord}
+        orderBy={orderBy}
+        status={searchStatus}
+        appearance={searchAappearance}
         handleChange={handleChange}
       />
       <Footer />

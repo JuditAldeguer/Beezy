@@ -8,7 +8,10 @@ import {dataEl} from "../types/Data"
 
 interface IProps {
   data: dataEl[];
-  searchWord: String;
+  searchWord: string;
+  orderBy: string;
+  status: string;
+  appearance: string;
   handleChange: (v: string, i: string) => void;
   isLoading: boolean;
 }
@@ -16,12 +19,21 @@ interface IProps {
 const Main: React.FC<IProps> = ({
   data,
   searchWord,
+  orderBy,
+  status,
+  appearance,
   handleChange,
   isLoading
 }) => {
   return (
     <main className="container" id="filters">
-      <Filters searchWord={searchWord} handleChange={handleChange} />
+      <Filters
+        searchWord={searchWord}
+        orderBy={orderBy}
+        status={status}
+        appearance={appearance}
+        handleChange={handleChange}
+      />
       <List data={data} isLoading={isLoading} />
     </main>
   );

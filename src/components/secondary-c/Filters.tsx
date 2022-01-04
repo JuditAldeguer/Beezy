@@ -1,13 +1,14 @@
 //styles
 import "../../styles/components/filters.scss";
 import { Form, Row, Col } from "react-bootstrap";
-//types
-import {dataEl} from "../../types/Data"
 
 
 
 type FiltersProps = {
-  data: dataEl[];
+  searchWord: string;
+  orderBy: string;
+  status: string;
+  appearance: string;
   handleChange: (v: string, i: string) => void;
 };
 
@@ -34,7 +35,7 @@ function Filters(props: FiltersProps) {
                 size="sm"
                 type="text"
                 placeholder="Example: Walter White"
-                // value={props.data.name}
+                value={props.searchWord}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -44,7 +45,7 @@ function Filters(props: FiltersProps) {
               <Form.Label>Order by:</Form.Label>
               <Form.Select
                 required
-                // value={data.orderBy === "" ? "name" : data.orderBy}
+                value={props.orderBy}
                 onChange={handleChange}
               >
                 <option value={"name"}>Name</option>
@@ -55,7 +56,7 @@ function Filters(props: FiltersProps) {
               <Form.Label>Filter by status:</Form.Label>
               <Form.Select
                 required
-                // value={data.status === "" ? "name" : data.status}
+                value={props.status}
                 onChange={handleChange}
               >
                 <option value={"all"}>All</option>
@@ -71,7 +72,7 @@ function Filters(props: FiltersProps) {
               <Form.Label>Appears in Better-Call-Saul:</Form.Label>
               <Form.Select
                 required
-                // value={data.appearance === "" ? "name" : data.appearance}
+                value={props.appearance}
                 onChange={handleChange}
               >
                 <option value={"all"}>All</option>
