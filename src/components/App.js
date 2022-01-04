@@ -76,7 +76,6 @@ function App() {
      }if (name === "appearance") {
        setSearchAppearance(value);
      }
-    console.log(searchWord, searchStatus, searchAappearance, orderBy);
   };
 
    const getFilteredData = () => {

@@ -2,8 +2,6 @@
 import "../../styles/components/filters.scss";
 import { Form, Row, Col } from "react-bootstrap";
 
-
-
 type FiltersProps = {
   searchWord: string;
   orderBy: string;
@@ -12,14 +10,13 @@ type FiltersProps = {
   handleChange: (v: string, i: string) => void;
 };
 
-
 function Filters(props: FiltersProps) {
   // handles
-  const handleChange = (e: any) => {
-    // (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
-    const v = e.target.value;
-    const i = e.target.id;
-    props.handleChange(v, i);
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.handleChange(e.target.value, e.target.id);
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    props.handleChange(e.target.value, e.target.id);
   };
 
   return (
@@ -36,7 +33,7 @@ function Filters(props: FiltersProps) {
                 type="text"
                 placeholder="Example: Walter White"
                 value={props.searchWord}
-                onChange={handleChange}
+                onChange={handleChangeInput}
               />
             </Form.Group>
           </Row>
