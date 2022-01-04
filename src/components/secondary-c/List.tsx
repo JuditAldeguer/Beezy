@@ -5,16 +5,18 @@ import "../../styles/components/list.scss";
 import CharacterCard from "./CharacterCard";
 import Loading from "./Loading";
 
-function List(props: any) {
+type ListProps = {
+  data: [];
+  isLoading: boolean;
+};
+
+function List({ data, isLoading }: ListProps) {
   //render
   const renderList = () => {
-    if (props.data !== undefined) {
-      return props.data.map((character: any) => {
+    if (data !== undefined) {
+      return data.map((character: any) => {
         return (
-          <ListGroup.Item
-            variant="dark"
-            key={character.char_id}
-          >
+          <ListGroup.Item variant="dark" key={character.char_id}>
             <CharacterCard
               character={character}
               characterId={character.char_id}
@@ -26,9 +28,9 @@ function List(props: any) {
   };
 
   return (
-    <section className="container" >
+    <section className="container">
       <h2 className="title">Characters list : </h2>
-      <Loading isLoading={props.isLoading} />
+      <Loading isLoading={isLoading} />
       <ListGroup>{renderList()}</ListGroup>
     </section>
   );

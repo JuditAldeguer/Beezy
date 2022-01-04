@@ -8,7 +8,7 @@ interface IProps {
   data: [];
   searchWord: String;
   handleChange: Function;
-  isLoading: Boolean;
+  isLoading: boolean;
 }
 
 const Main: React.FC<IProps> = ({
