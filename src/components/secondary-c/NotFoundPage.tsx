@@ -1,10 +1,9 @@
-import '../../styles/components/notFoundPage.scss';
-import { Modal } from 'react-bootstrap';
+import "../../styles/components/notFoundPage.scss";
+import { Modal } from "react-bootstrap";
 import { useState } from "react";
 
 const NotFoundPage = () => {
-  const [show, setShow] = useState(true);
-
+  const [show, setShow] = useState<boolean>(true);
 
   return (
     <Modal
