@@ -6,7 +6,7 @@ import CharacterCard from "./CharacterCard";
 import Loading from "./Loading";
 
 type ListProps = {
-  data: [];
+   data: object[];
   isLoading: boolean;
 };
 
