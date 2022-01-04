@@ -1,13 +1,21 @@
-import { useState } from "react";
 //styles
 import "../../styles/components/filters.scss";
 import { Form, Row, Col } from "react-bootstrap";
+//types
+import {dataEl} from "../../types/Data"
 
-function Filters(props: any) {
-  //useState
-  
+
+
+type FiltersProps = {
+  data: dataEl[];
+  handleChange: (v: string, i: string) => void;
+};
+
+
+function Filters(props: FiltersProps) {
   // handles
-  const handleChange = (e:any) => {
+  const handleChange = (e: any) => {
+    // (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     const v = e.target.value;
     const i = e.target.id;
     props.handleChange(v, i);
@@ -26,7 +34,7 @@ function Filters(props: any) {
                 size="sm"
                 type="text"
                 placeholder="Example: Walter White"
-                // value={data.name}
+                // value={props.data.name}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -71,7 +79,7 @@ function Filters(props: any) {
                 <option value={"no"}>No</option>
               </Form.Select>
             </Form.Group>
-              <div id="list"></div>
+            <div id="list"></div>
           </Row>
         </Form>
       </section>

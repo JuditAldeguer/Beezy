@@ -4,9 +4,11 @@ import "../../styles/components/list.scss";
 //component
 import CharacterCard from "./CharacterCard";
 import Loading from "./Loading";
+//types
+import {dataEl} from "../../types/Data"
 
 type ListProps = {
-   data: object[];
+  data: dataEl[];
   isLoading: boolean;
 };
 

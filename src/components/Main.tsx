@@ -3,11 +3,13 @@ import "../styles/layout/main.scss";
 //Components
 import Filters from "./secondary-c/Filters";
 import List from "./secondary-c/List";
+//types
+import {dataEl} from "../types/Data"
 
 interface IProps {
-  data: [];
+  data: dataEl[];
   searchWord: String;
-  handleChange: Function;
+  handleChange: (v: string, i: string) => void;
   isLoading: boolean;
 }
 
