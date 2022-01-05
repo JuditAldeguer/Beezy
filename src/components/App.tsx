@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Route, Switch, useRouteMatch } from "react-router-dom";
 //Services
-import ls from "../services/local-storage";
-import { data } from "../types/Data";
 import api from "../services/api";
 //Styles
 import "../styles/App.scss";
@@ -12,14 +10,23 @@ import Main from "./Main";
 import Footer from "./Footer";
 import NotFoundPage from "./secondary-c/NotFoundPage";
 import CharacterDetail from "./secondary-c/CharacterDetail";
+//types
+import {dataEl} from "../types/Data"
 
-// interface IState {
-//   data: data[];
-// }
+interface IState {
+  data: dataEl[];
+  characterId: string;
+  noData: dataEl[];
+}
 
-function App() {
+interface MatchParams {
+  id: string;
+}
+
+function App(): JSX.Element {
   //useState
-  const [listCharacters, setListCharacters] = useState([]);
+  const [listCharacters, setListCharacters] = useState<
+    IState["data"]>([]);
   const [filteredListCharacters, setFilteredListCharacters] =
     useState(listCharacters);
   const [searchWord, setSearchWord] = useState("");
@@ -44,7 +51,7 @@ function App() {
   }, [searchWord]);
 
   const updateStates = () => {
-    api.callToApi(searchWord, pageNum).then((response) => {
+    api.callToApi(searchWord, pageNum.toString()).then((response) => {
       setListCharacters(response);
       setIsLoading(false);
       setNumberOfPagesWord(
@@ -53,62 +60,81 @@ function App() {
     });
   };
 
-   useEffect(() => {
-     getFilteredData();
-   }, [listCharacters, searchWord, searchStatus, searchAappearance, orderBy]);
+  useEffect(() => {
+    getFilteredData();
+  }, [listCharacters, searchWord, searchStatus, searchAappearance, orderBy]);
 
   //useRef
-  const routeData = useRouteMatch("/character/:characterId");
+  const routeData = useRouteMatch<MatchParams>("/character/:characterId");
+  debugger;
+  console.log(routeData);
+  
   const characterId =
     routeData !== null ? parseInt(routeData.params.characterId) : "";
+  
+  debugger;
+  console.log(characterId);
+
+  
   const selectedCharacter = listCharacters.find((character) => {
     return character.char_id === characterId;
   });
 
   // handles
-  const handleChange = (value, name) => {
+  const handleChange = (value: string, name: string) => {
     if (name === "searchName") {
       setSearchWord(value);
-    } if (name === "orderBy") {
+    }
+    if (name === "orderBy") {
       setOrderBy(value);
-     }if (name === "status") {
-       setSearchStatus(value);
-     }if (name === "appearance") {
-       setSearchAppearance(value);
-     }
+    }
+    if (name === "status") {
+      setSearchStatus(value);
+    }
+    if (name === "appearance") {
+      setSearchAppearance(value);
+    }
   };
 
-   const getFilteredData = () => {
-     const newData = listCharacters
-       .filter((character) => {
-         if (searchStatus !== "all") {
-           return character.status.includes(searchStatus);
-         } else return character;
-        }      
-       )
-       .filter((character) => {
-         if (searchAappearance === "yes") {
-           return character.better_call_saul_appearance.length > 0;
-         } if (searchAappearance === "no") {
-           return character.better_call_saul_appearance.length === 0;
-         } else return character;
-       });
-     setByOrder(newData);
-     if (newData.length === 0) {
-       const noData = [
-         {
-           name: "There are no characters that match the requested filters.",
-           img: "https://www.villas4u.com/assets/img/image-not-found.svg",
-           nickname: "Not Found",
-         },
-       ];
-       setFilteredListCharacters(noData);
-     } else {
-       setFilteredListCharacters(newData);
-     }
-   };
+  const getFilteredData = () => {
+    const newData: IState["data"] = listCharacters
+      .filter((character) => {
+        if (searchStatus !== "all") {
+          return character.status.includes(searchStatus);
+        } else return character;
+      })
+      .filter((character) => {
+        if (searchAappearance === "yes") {
+          return character.better_call_saul_appearance.length > 0;
+        }
+        if (searchAappearance === "no") {
+          return character.better_call_saul_appearance.length === 0;
+        } else return character;
+      });
+    setByOrder(newData );
+    if (newData.length === 0) {
+      const noData: IState["noData"] = [
+        {
+          char_id: 0,
+          name: "There are no characters that match the requested filters.",
+          img: "https://www.villas4u.com/assets/img/image-not-found.svg",
+          nickname: "Not Found",          
+          birthday: "",
+          occupation: [""],
+          status: "",
+          appearance: [0],
+          portrayed: "",
+          category: "",
+          better_call_saul_appearance: [],
+        },
+      ];
+      setFilteredListCharacters(noData);
+    } else {
+      setFilteredListCharacters(newData);
+    }
+  };
 
-  const setByOrder = (newData) => {
+  const setByOrder = (newData: IState["data"]) => {
     if (orderBy === "nickname") {
       newData.sort(function (a, b) {
         if (a.nickname > b.nickname) {
@@ -139,6 +165,9 @@ function App() {
         isLoading={isLoading}
         data={filteredListCharacters}
         searchWord={searchWord}
+        orderBy={orderBy}
+        status={searchStatus}
+        appearance={searchAappearance}
         handleChange={handleChange}
       />
       <Footer />

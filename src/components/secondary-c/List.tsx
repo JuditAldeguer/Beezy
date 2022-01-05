@@ -4,20 +4,24 @@ import "../../styles/components/list.scss";
 //component
 import CharacterCard from "./CharacterCard";
 import Loading from "./Loading";
+//types
+import {dataEl} from "../../types/Data"
 
-function List(props: any) {
+type ListProps = {
+  data: dataEl[];
+  isLoading: boolean;
+};
+
+function List({ data, isLoading }: ListProps) {
   //render
   const renderList = () => {
-    if (props.data !== undefined) {
-      return props.data.map((character: any) => {
+    if (data.length !== 0) {
+      return data.map((character: dataEl) => {
         return (
-          <ListGroup.Item
-            variant="dark"
-            key={character.char_id}
-          >
+          <ListGroup.Item variant="dark" key={character.char_id}>
             <CharacterCard
               character={character}
-              characterId={character.char_id}
+              characterId={character.char_id.toString()}
             />
           </ListGroup.Item>
         );
@@ -26,9 +30,9 @@ function List(props: any) {
   };
 
   return (
-    <section className="container" >
+    <section className="container">
       <h2 className="title">Characters list : </h2>
-      <Loading isLoading={props.isLoading} />
+      <Loading isLoading={isLoading} />
       <ListGroup>{renderList()}</ListGroup>
     </section>
   );

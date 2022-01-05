@@ -1,16 +1,22 @@
-import { useState } from "react";
 //styles
 import "../../styles/components/filters.scss";
 import { Form, Row, Col } from "react-bootstrap";
 
-function Filters(props: any) {
-  //useState
-  
+type FiltersProps = {
+  searchWord: string;
+  orderBy: string;
+  status: string;
+  appearance: string;
+  handleChange: (v: string, i: string) => void;
+};
+
+function Filters(props: FiltersProps) {
   // handles
-  const handleChange = (e:any) => {
-    const v = e.target.value;
-    const i = e.target.id;
-    props.handleChange(v, i);
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.handleChange(e.target.value, e.target.id);
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    props.handleChange(e.target.value, e.target.id);
   };
 
   return (
@@ -26,8 +32,8 @@ function Filters(props: any) {
                 size="sm"
                 type="text"
                 placeholder="Example: Walter White"
-                // value={data.name}
-                onChange={handleChange}
+                value={props.searchWord}
+                onChange={handleChangeInput}
               />
             </Form.Group>
           </Row>
@@ -36,7 +42,7 @@ function Filters(props: any) {
               <Form.Label>Order by:</Form.Label>
               <Form.Select
                 required
-                // value={data.orderBy === "" ? "name" : data.orderBy}
+                value={props.orderBy}
                 onChange={handleChange}
               >
                 <option value={"name"}>Name</option>
@@ -47,7 +53,7 @@ function Filters(props: any) {
               <Form.Label>Filter by status:</Form.Label>
               <Form.Select
                 required
-                // value={data.status === "" ? "name" : data.status}
+                value={props.status}
                 onChange={handleChange}
               >
                 <option value={"all"}>All</option>
@@ -63,7 +69,7 @@ function Filters(props: any) {
               <Form.Label>Appears in Better-Call-Saul:</Form.Label>
               <Form.Select
                 required
-                // value={data.appearance === "" ? "name" : data.appearance}
+                value={props.appearance}
                 onChange={handleChange}
               >
                 <option value={"all"}>All</option>
@@ -71,7 +77,7 @@ function Filters(props: any) {
                 <option value={"no"}>No</option>
               </Form.Select>
             </Form.Group>
-              <div id="list"></div>
+            <div id="list"></div>
           </Row>
         </Form>
       </section>
