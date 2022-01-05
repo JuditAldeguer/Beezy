@@ -15,13 +15,13 @@ type ListProps = {
 function List({ data, isLoading }: ListProps) {
   //render
   const renderList = () => {
-    if (data !== undefined) {
-      return data.map((character: any) => {
+    if (data.length !== 0) {
+      return data.map((character: dataEl) => {
         return (
           <ListGroup.Item variant="dark" key={character.char_id}>
             <CharacterCard
               character={character}
-              characterId={character.char_id}
+              characterId={character.char_id.toString()}
             />
           </ListGroup.Item>
         );
