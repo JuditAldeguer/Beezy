@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
 //Styles
 import "../../styles/components/characterCards.scss";
-//component
+//types
+import {dataEl} from "../../types/Data"
 
+type CharacterCardProps = {
+  character: dataEl;
+  characterId?: string;
+};
 
-const CharacterCard = (props: any) => {
-
-  
+const CharacterCard = (props: CharacterCardProps) => {
   return (
     <>
       <NavLink to={`./character/${props.character.char_id}`} title="Detail">
