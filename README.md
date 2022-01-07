@@ -3,7 +3,7 @@
 ## Mi proyecto
 
 - Dónde localizarlo  
-   Mi trabajo se encuentra en el repositorio de Github y puedes encontrar facilmente el link a Github Page que da acceso a la última versión de mi **rama master** en el apartado _About_. [Acceder a la web](https://breaking-bad--wiki.herokuapp.com/)
+   Mi trabajo se encuentra en el repositorio de Github y puedes encontrar facilmente el link a Github Page que da acceso a la última versión de mi **rama master** en el apartado _About_. [Acceder a la web](https://github.com/JuditAldeguer/Beezy)
 
   Deseo destacar que he seguido un **diseño responsive**, el cual varia al pasar de versión mobil a tablet y a desktop y he usado **Bootstrap**, que estoy aprendiendo ahora, para el CSS.
 
