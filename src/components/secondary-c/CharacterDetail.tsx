@@ -9,8 +9,8 @@ import {dataEl} from "../../types/Data"
 
 
 type CharacterCardProps = {
-  character: dataEl;
-  characterId?: string;
+  character: dataEl | undefined;
+  characterId?: string | number;
 };
 
 const CharacterDetail = (props: CharacterCardProps) => {
@@ -18,41 +18,45 @@ const CharacterDetail = (props: CharacterCardProps) => {
   const [show, setShow] = useState(true);
 
   const renderOcupation = () => {
-    return props.character.occupation.map((o) => {
-      return <li key={uuid()}>{o}</li>;
-    });
+    if (props.character !== undefined) {
+      return props.character.occupation.map((o) => {
+        return <li key={uuid()}>{o}</li>;
+      });
+    }
   };
 
   const iconStatus = () => {
-    if (props.character.status === "Deceased") {
-      return (
-        <>
-          <p>
-            <strong>Status: </strong>
-            <i className="fas fa-skull-crossbones"></i>;
-            {` ${props.character.status}`}
-          </p>
-        </>
-      );
-    } else if (props.character.status === "Alive") {
-      return (
-        <>
-          <p>
-            <strong>Status: </strong>
-            <i className="fas fa-heartbeat"></i>;{` ${props.character.status}`}
-          </p>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <p>
-            <strong>Status: </strong>
-            <i className="fas fa-question-circle"></i>
-            {` ${props.character.status}`}
-          </p>
-        </>
-      );
+    if (props.character !== undefined) {
+      if (props.character.status === "Deceased") {
+        return (
+          <>
+            <p>
+              <strong>Status: </strong>
+              <i className="fas fa-skull-crossbones"></i>;
+              {` ${props.character.status}`}
+            </p>
+          </>
+        );
+      } else if (props.character.status === "Alive") {
+        return (
+          <>
+            <p>
+              <strong>Status: </strong>
+              <i className="fas fa-heartbeat"></i>;{` ${props.character.status}`}
+            </p>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <p>
+              <strong>Status: </strong>
+              <i className="fas fa-question-circle"></i>
+              {` ${props.character.status}`}
+            </p>
+          </>
+        );
+      }
     }
   };
 
@@ -142,7 +146,7 @@ const CharacterDetail = (props: CharacterCardProps) => {
     );
   };
 
-  return <div>HEy: {renderCharaterDetail()}</div>;
+  return <div>{renderCharaterDetail()}</div>;
 };
 
 export default CharacterDetail;
