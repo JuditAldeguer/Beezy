@@ -20,13 +20,12 @@ interface IState {
 }
 
 interface MatchParams {
-  id: string;
+  characterId: string;
 }
 
 function App(): JSX.Element {
   //useState
-  const [listCharacters, setListCharacters] = useState<
-    IState["data"]>([]);
+  const [listCharacters, setListCharacters] = useState<IState["data"]>([]);
   const [filteredListCharacters, setFilteredListCharacters] =
     useState(listCharacters);
   const [searchWord, setSearchWord] = useState("");
@@ -36,7 +35,7 @@ function App(): JSX.Element {
   const [isLoading, setIsLoading] = useState(true);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [numberOfPagesWord, setNumberOfPagesWord] = useState(1);
-  let pageNumCont;
+  // let pageNumCont;
   const [pageNum, setPageNum] = useState(0);
 
   // useEffect
@@ -66,16 +65,8 @@ function App(): JSX.Element {
 
   //useRef
   const routeData = useRouteMatch<MatchParams>("/character/:characterId");
-  debugger;
-  console.log(routeData);
-  
   const characterId =
     routeData !== null ? parseInt(routeData.params.characterId) : "";
-  
-  debugger;
-  console.log(characterId);
-
-  
   const selectedCharacter = listCharacters.find((character) => {
     return character.char_id === characterId;
   });
@@ -111,14 +102,14 @@ function App(): JSX.Element {
           return character.better_call_saul_appearance.length === 0;
         } else return character;
       });
-    setByOrder(newData );
+    setByOrder(newData);
     if (newData.length === 0) {
       const noData: IState["noData"] = [
         {
           char_id: 0,
           name: "There are no characters that match the requested filters.",
           img: "https://www.villas4u.com/assets/img/image-not-found.svg",
-          nickname: "Not Found",          
+          nickname: "Not Found",
           birthday: "",
           occupation: [""],
           status: "",
