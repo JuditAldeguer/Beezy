@@ -1,61 +1,61 @@
-# Prueba Técnica - Beezy
+# Technical Test - Beezy
 
-## Mi proyecto
+## My project
 
-- Dónde localizarlo  
-   Mi trabajo se encuentra en el repositorio de Github y puedes encontrar facilmente el link a Github Page que da acceso a la última versión de mi **rama master** en el apartado _About_. [Acceder a la web](https://breaking-bad--wiki.herokuapp.com/)
+- Where to locate it  
+   My work is in the Github repository and you can easily find the link to Heroku that gives access to the latest version of my **master branch** in section _About_. [Access the web](https://breaking-bad--wiki.herokuapp.com/)
 
-  Deseo destacar que he seguido un **diseño responsive**, el cual varia al pasar de versión mobil a tablet y a desktop y he usado **Bootstrap**, que estoy aprendiendo ahora, para el CSS.
+  I want to emphasize that I have followed a **responsive design**, which varies when going from mobile version to tablet and desktop and I have used **Bootstrap**, which I am learning now, for the CSS.
 
-  Por otro lado, como podrás ver, este trabajo consta de dos ramas **rama dev** para todo lo que está en desarrollo y **rama master** que contiene el producto final.
+  On the other hand, as you can see, this work consists of two branches **dev branch** for everything that is in development and **master branch** that contains the final product.
 
-- Qué es  
-  Se trata de una aplicación web que sirve de Visualizar los personajes de la serie Breaking Bad.
+- What is it  
+  It is a web application that serves to visualize the characters of the Breaking Bad series.
 
-  - Obtener información de los personajes iniciales gracias a una primera llamada a la **API** y con el **useEffect**
-  - Pintar los personajes iniciales
-  - Cambiar el orden de visaluzación de los personajes: por Nombre, por Nickname.
-  - Al clicar sobre un personaje, ver su **Información Deallada**.
-  - Posibilidad de **filtrar** los personajes según nombre, estado y aparición en serie "Better Call Saul".
-  - Para una mejor estructura, está desglosado en **Componentes**
-  - Tres visualizaciones distintas usando **Route, Switch**
-  - Informar con una visalización distinta si no existe la url **notFoundPage** con el uso de **ModalWindows**.
-  - Uso de **Bootstrap** por dar estilo.  
-  - Introducir **Typescript** y **Testing** los cuales estoy aprendiendo
-
-
-- Qué partes tiene  
-  Contiene tres partes claras:
-
-  1. El _header_
-     - Título de la página
-     - Menú hamburguesa
-  2. El _main_
-     - Fromulario para el filtrado
-     - Personajes
-  3. El _footer_
+  - Obtain information on the initial characters thanks to a first call to the **API** and **useEffect**.
+  - Paint the initial characters.
+  - Change the display order of the characters: by Name, by Nickname.
+  - Possibility to **filter** the characters according to name, status and appearance in the series "Better Call Saul".
+  - For a better structure, it is broken down into **Components**.
+  - By clicking on a character, see its **Detailed Information**.
+  - Three different visualizations using **Route, Switch**.
+  - Report with a different display if the url does not exist, **notFoundPage**, with the use of **ModalWindows**.
+  - Using **Bootstrap** for styling.  
+  - Introduction of **Typescript** and **Testing**, which I am learning.
 
 
-- Qué se podría añadir  
-  - Añadir más testing y trabajar con la métodologia Test Driven Development (TDD).
-  - Posibilidad de añadir más funcionalidades como, por ejemplo:
-      - Buscador por nickname.
-      - Al haber más de 10 personajes como resultado, incorporar componente que permita navegar de una páina a otra.
-      - Guardar los datos en LocalStorage / BBDD dichas nuevos personajes. 
+- What parts does it have  
+  It contains three clear parts:
+
+  1. The _header_
+     - Page title
+     - Hamburger menu
+  2. The _main_
+     - Form for filtering
+     - Characters
+  3. The _footer_
+
+ 
+- What could be added  
+  - Add more testing and work with Test Driven Development (TDD) methodology.
+  - Possibility of adding more functionalities such as, for example:
+    - Search by nickname / actor.
+    - When there are more than 10 characters as a result of the API, incorporate a component that allows you to navigate from one page to another.
+    - Save the data in LocalStorage / BBDD the characters. 
 
 
-- Qué tecnologías usa
-  He usado los lenguages HTML, CSS, TypeScript, Bootstrap y React.  
-  El preprocesador de CSS usado ha sido SAAS pues garcias al react-starter-Kit he podido usar diferentes herramientas como la _automatización de gulp_.
+- What technologies does the project use
+  I have used the languages HTML, CSS, TypeScript, Bootstrap y React.  
+  The CSS preprocessor used has been SAAS and I have used the _automatization of gulp_.
 
-- Cómo se instala  
-  Gracias al Starter-Kit la instalación es muy simple, únicamente se precisa de _Visual Studio Code_ con las correspondientes extensiones, un navegador como, por ejemplo, _Chrome_ y _Github_.
+- How to install  
+  Thanks to the React-Template the installation is very simple, you only need _Visual Studio Code_ (or other code editor) with the corresponding extensions, a browser such as _Chrome_ and _Github_.
 
-- Cómo se ejecuta  
-  Una vez se dispone de estas herramientas bien ubicadas, con los comandos <npm install> y <npm start> abrirá el proyecto en [http://localhost:3000](http://localhost:3000) y podrás empezar a hacer uso del React-Starter-Kit y sus facilidades.
+- How it is executed  
+  Once these tools are well located, with the commands <npm install> y <npm start> will open the project in [http://localhost:3000](http://localhost:3000) and you can start using the React-Template and its facilities.
 
-- Cómo se prueban los test  
-  Con el comando <npm run testl> y podrás empezar a hacer uso testing.
+- How the tests are tested  
+  With the command <npm run testl> and you can start using testing.
 
-Espero que os guste mi trabajo, por supuesto tengotodavía mucho a mejorar pero no me faltan ganas! Espero que podáis darme indicaciones para seguir mejorando.  
-Gracias por adelantado!!
+I hope you like my work, of course I still have a lot to improve, but I have plenty of motivation! I hope you can give me directions to continue improving.
+Thank you in advance!!
